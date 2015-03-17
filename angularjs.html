@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru" ng-app="testApp">
+  <head>
+      <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+      <script src="bower_components/angular/angular.min.js"></script>
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="btn-line">
+        <buy-button item-id="123"/>
+    </div>
+    <div class="btn-line">
+        <buy-button item-id="124"/>
+    </div>
+
+<script>
+
+angular.module('testApp', [])
+.directive('buyButton', function() {
+    return {
+        restrict: 'AE',
+        replace: 'true',
+        template: '<div class="buy-button">Купить</div>',
+        link: function(scope, element, attr) {
+            element.bind('click', function() {
+                alert(attr.itemId);
+                element.addClass('added_to_cart');
+                element.html('В корзине ');
+            });
+        }
+    };
+});
+
+</script>
+
+  </body>
+</html>

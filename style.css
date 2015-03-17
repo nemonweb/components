@@ -1,0 +1,24 @@
+.buy-button{
+    display: block;
+    padding: 8px 0;
+    text-align: center;
+    width: 70px;
+    background: rgb(122,193,67);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font: 14px "Roboto",sans-serif;
+    color: rgb(255,255,255);
+    cursor: pointer;
+}
+.added_to_cart{
+    background: rgb(154, 154, 154) ;
+}
+
+.added_to_cart a {
+  color: #FFF;
+}
+
+.btn-line{
+    margin-bottom: 5px;
+}

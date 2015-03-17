@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru" ng-app="testApp">
+  <head>
+      <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+      <script src="bower_components/react/react.js"></script>
+      <script src="bower_components/react/JSXTransformer.js"></script>
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+
+<script type="text/jsx">
+var HelloMessage = React.createClass({
+  render: function() {
+    return (
+        <div>Hello {this.props.name}</div>
+    );
+  }
+});
+
+var BuyButton = React.createClass({
+    getInitialState: function() {
+        return {buyed: false};
+    },
+    handleClick: function(event) {
+        this.setState({buyed: !this.state.buyed});
+        alert(this.props.item);
+    },
+
+    render: function() {
+        var classString = 'buy-button';
+        if(this.state.buyed){
+            classString += ' added_to_cart'
+        }
+        var text = this.state.buyed ? 'В корзине' : 'Купить';
+        return (
+          <div onClick={this.handleClick} className={classString}>
+            {text}
+          </div>
+        );
+      }
+});
+
+var ButtonList = React.createClass({
+  render: function() {
+      var classWrap = 'btn-line';
+    return (
+      <div>
+        <div className={classWrap}>
+            <BuyButton item="123"/>
+        </div>
+
+        <div className={classWrap}>
+            <BuyButton item="124"/>
+        </div>
+      </div>
+    );
+  }
+});
+
+/*
+React.render(
+  <HelloMessage name="John" />,
+  document.getElementById('container')
+);
+*/
+React.render(
+  <ButtonList />,
+  document.body
+);
+</script>
+  </body>
+</html>
